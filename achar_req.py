@@ -5,7 +5,7 @@ def le_requisicoes():
     try:
         cnx = mysql.connector.connect(user='user', database='chaveiro', password='password', host='localhost', port='3306', connect_timeout=5)
         cursor = cnx.cursor()
-        query = ("SELECT confirmed FROM requisitions")
+        query = ("SELECT id_key FROM requisitions WHERE confirmed = false")
         cursor.execute(query)
         records = cursor.fetchall()
         print(records)
