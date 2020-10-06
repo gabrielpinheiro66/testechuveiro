@@ -7,8 +7,9 @@ def altera_posicao(posicao):
     try:
         cnx = mysql.connector.connect(user='user', database='chaveiro', password='password', host='localhost', port='3306', connect_timeout=5)
         cursor = cnx.cursor()
+        pos = (posicao,)
         query = "UPDATE engine SET position = %s"
-        cursor.execute(query, (posicao))
+        cursor.execute(query, (pos))
         cnx.commit()
         func = True
     except mysql.connector.Error as err:
@@ -20,6 +21,11 @@ def altera_posicao(posicao):
           cnx.close()
         return func
 
-posicao = 30
+posicao = 35
 
-altera_posicao(30)
+x = altera_posicao(posicao)
+
+if(x):
+  print("Deu bom")
+else:
+  print("Nao deu")
