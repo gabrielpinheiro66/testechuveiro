@@ -23,6 +23,7 @@ while True:
     ## ESTADO INICIAL
 
     if state == 'inicial':
+        print("Lendo requisicoes..........")
         vetor = dbfunctions.le_requisicoes()
         if len(vetor) > 0:
             state == 1
@@ -51,6 +52,7 @@ while True:
             state = 2
         else:
             print("ERROU NO ROLE")
+        time.sleep(0.01)
         state = 2
 
     ## ESTADO 2
@@ -58,7 +60,11 @@ while True:
     elif state == 2:
         a = input("Aperte o botao")
         dbfunctions.confirmar(chave_desejada)
+        time.sleep(0.01)
         state = 3
+
+
+    ## ESTADO 3
 
     elif state == 3:
         posicao_desejada = 0
